@@ -1,0 +1,168 @@
+
+// Estilos para pagina LUGARES.
+.seccion-lugares{
+
+    //@extend %estiloSecciones;   
+
+    margin: 5rem;
+    .carousel-item img{
+        border-radius: 0.94rem;
+    }    
+    
+    .carousel-item .carousel-caption h4{
+        font-size: 4rem;
+    }
+
+    .carousel-item .carousel-caption p{
+        font-size: 3rem;
+    }
+
+
+} 
+
+
+// Estilos reutilizables para páginas MARCAS, VESTIMENTA Y EQUIPAMIENTO.
+.galeria__contenedor{
+    
+   @include  estructuraGrid (repeat(auto-fill,minmax(300px,1fr) ), minmax(200px,auto), 20px);
+    margin: auto;
+
+}
+
+.galeria__titulo{
+    @extend %estiloTituloGaleria;
+}
+
+.galeria__contenedor__item{
+    position: relative;
+    height: 20rem;
+    width: 20rem;
+    overflow: hidden;
+    border-radius: 0.6rem;
+    cursor: pointer;
+
+}
+
+.galeria__contenedor__item img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;   // Solo tiene efecto en Marcas donde las imagenes de los íconos de las Marcas
+                           // no tienen el mismo tamaño por ser Logos de las marcas.
+    transition: all 500ms ease-out;
+}
+
+.galeria__contenedor__item--descripcion{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background:$verde-azulado;
+    transition: all 500ms ease-out;        
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+}
+
+.galeria__contenedor__item:hover > .galeria__contenedor__item--descripcion{
+    opacity: 0.90;
+    visibility: visible;
+}
+
+.galeria__contenedor__item:hover > .galeria__contenedor__item--descripcion h3{
+    margin-top: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.galeria__contenedor__item:hover > img{
+    transform: scale(1.3);
+}
+
+.galeria__contenedor__item h3{
+    font-weight: 40rem;
+    margin-bottom: 12rem;
+    transition: all 500ms ease-out;
+    margin-top: 2rem;   
+}
+
+.galeria__contenedor__item--descripcion{
+    color: $blanco;   
+    font-size: 1.5rem;
+    width: 100%;
+    max-width: 20rem;
+    margin: auto;
+}
+
+
+
+// Estilos para página CONTACTO.
+.seccion-contacto{
+
+    margin: 5rem auto;  
+
+    .datos-contacto{
+
+        input{
+            height: 4rem;
+            margin: 0.5rem;
+            padding-left: 0.6rem ;
+            padding-right: 0.6rem;
+            border-style: none;
+            font-size: 1.5rem;
+        }
+
+        .checkbox{
+            margin: 0.3rem;
+        }        
+
+        textarea{
+            border-radius: 5px;
+            height: 6.25rem;    
+            margin: 0.625rem;
+            padding-left: 0.625rem;
+            padding-right: 0.625rem;
+            padding-top: 0.625rem;
+            border-style: none;   
+            font-size: 1.5rem;         
+        }
+
+        .button{
+            color: $colorBtn;
+            font-size: 2rem;
+            font-weight: bold;
+            background-color: $verde-azulado;
+            width: 100%;
+            padding-top: 0.625rem;
+            height: 4rem;  
+        }        
+        
+       /* Agregado de MOVIMIENTO al boton del formulario  */  
+        @keyframes cambiar-color{
+            
+            0%{
+                @include efectosBotonFormulario($verde-azulado, 100%);
+            }
+        
+            33%{
+                @include efectosBotonFormulario($background, 50%);      
+            }
+
+            66%{
+                @include efectosBotonFormulario($rojo, 60%); 
+            }
+
+            100%{
+                @include efectosBotonFormulario($verde-azulado, 100%);
+            }
+
+        }
+        
+        .efectos:hover{
+            background: turquoise;
+            animation-name: cambiar-color;
+            animation-duration: 10s;
+            animation-iteration-count: 3;
+        }
+      
+    }
+
+}

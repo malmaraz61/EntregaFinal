@@ -1,0 +1,18 @@
+// Base
+@import "base/reseteo", "base/tipografia","base/colores","base/titulos";
+
+// Extends
+@import "base/extends";
+
+// Mixins
+@import "base/mixins";
+
+// Header
+@import "esquema/header";
+
+// Secciones
+@import "esquema/secciones";
+
+// Footer
+@import "esquema/footer";
+

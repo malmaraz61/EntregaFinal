@@ -1,0 +1,115 @@
+/* BACKGROUND GENERAL PARA EL SITIO */
+
+body {
+    background-color: $background;
+  }
+
+
+
+/* HEADER */
+
+header{
+    background: $verde-azulado ;
+    padding: 1.5rem 0;   
+    
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;  // o lo que es igual width: 100%
+    z-index: 99;    
+}
+
+.header{ 
+    width: 95%;
+    max-width: 120rem;
+    margin: auto; 
+
+    @include estructuraFlex(row, space-between,  center);
+    
+    &__nav__menu {
+        display: flex;
+
+        &__item{
+            margin-left: 1.5rem;
+
+            a{
+                color: $blanco;
+                font-size: 1.7rem;
+                text-transform: uppercase;
+                font-weight: bold;  
+                text-decoration: none;
+            }
+
+            a:hover, a:active{
+                background-color: rgba(180, 211, 41, 0.3);
+                color: $negro;                
+            }
+
+
+        }        
+    }
+
+    &__icono{
+        display: none;
+    }
+}
+
+
+@media screen and (max-width:768px){
+
+    header{
+        position: relative;
+    }
+
+    #menu:target{
+        top: 0;
+        left: 0;
+    }
+  
+    .header {
+        &__nav{
+            z-index: 16; // Minimo valor encontrado para "tapar" las marcas del carrusel de Boostrap
+            position: fixed;
+            left:-100%;
+            top: -100%;
+            width: 50%;
+            height: 100vh;
+            background: $verde-azulado ;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.6);
+            transition: top 0.5s,  left 0.5s;
+
+            &__menu{
+                background: 100%;
+                width:100%;
+                height: 100%;
+
+                @include estructuraFlex(column, center,  center);
+
+                &__item{
+                    margin: 2rem 0;
+
+                    a{
+                        font-size: 2rem;
+                    }
+                }
+            }
+       }
+
+       &__icono {
+        display: block;
+        filter: invert(100%);
+        width: 3rem;
+        }
+
+        &__close_m, &__open_m{
+            position: absolute;
+            left:2rem;
+            top:2rem;
+        }        
+
+    }
+
+}
+
+
+

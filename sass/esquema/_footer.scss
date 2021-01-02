@@ -1,0 +1,32 @@
+/*  FOOTER */
+
+.footer {
+    padding: 1.5rem 0;
+    background-color: $verde-azulado;
+
+    @include estructuraFlex(row, space-around, flex-start);
+
+    li{
+      font-size: 1.2rem;
+      line-height: 1.5rem;
+      color: $negro;
+    }
+
+}
+
+@media screen and (max-width:768px){
+
+  .footer {    
+    @include estructuraFlex(column, center, center );
+    
+    padding-top: 2.5rem;
+    text-align: center;
+    
+    .footer__seccion{
+      padding: 0.5rem;
+    }
+    
+  }
+
+}
+
